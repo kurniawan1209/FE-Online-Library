@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>E-Library - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/custom-css.css">
+    <link rel="stylesheet" href="../../css/custom-card-css.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="../../css/responsive.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+
+    <style>
+        .owl-carousel .owl-item img {
+            transform: none;
+            width: auto;
+            height: auto;
+        }
+
+        .owl-carousel .owl-item {
+            width: 100%;
+            height: 100%;
+        }
+
+        u {
+            text-decoration: underline;
+            text-decoration-color: #4e73df;
+            text-underline-offset: 3px;
+        }
+    </style>
+
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <!-- Sidebar Start -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">E-Library</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Home Page</span></a>
+            </li>
+
+            <!-- Nav Item - My Collections -->
+            <li class="nav-item">
+                <a class="nav-link" href="my_collection.html">
+                    <i class="fas fa-fw fa-book-open"></i>
+                    <span>My Collections</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search book..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-filter fa-sm"></i> <small>Filter By</small>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle" src="../../img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div class="row">
+
+                        <div class="col-md-12 mb-4">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="../../img/book/260c6ae16bce31c8f8c95daddd9f4a1c.jpg" alt=""
+                                                class="rounded img-thumbnail mx-auto d-block">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!-- book title -->
+                                            <h4 class="crop-text-2 font-weight-bold text-gray-900">Book Title</h4>
+                                            <!-- star rating -->
+                                            <i class="text-warning fa fa-star"></i>
+                                            <i class="text-warning fa fa-star"></i>
+                                            <i class="text-warning fa fa-star"></i>
+                                            <i class="text-warning fa fa-star"></i>
+                                            <i class="text-warning fa fa-star"></i>
+                                            <span class="text-gray-500">(Review 3)</span>
+                                            <!-- Quick Description -->
+                                            <p class="pt-4 pb-4 crop-text-4 text-gray-800">Pellentesque dolor augue,
+                                                euismod vel orci in,
+                                                congue sodales nunc. Duis sed auctorol or, ac facilisis mi. Duis
+                                                malesuada, arcu ut ultricies pretiu nulla tortor egestas nisl, fu dictum
+                                                mauris elit eu nisi. Donec hen drerit magna a consectetur ullamcor
+                                                per.libo sed, sollicitudin euismod est hasellus congue.</p>
+                                            <!-- Table Description -->
+                                            <table class="table-responsive" style="display: table">
+                                                <tr class="text-center">
+                                                    <td width="33%" style="border-right: 2px solid rgb(180, 180, 180);"
+                                                        class="font-weight-bold text-gray-900">Availability</td>
+                                                    <td width="33%" style="border-right: 2px solid rgb(180, 180, 180);"
+                                                        class="font-weight-bold text-gray-900">Tags</td>
+                                                    <td width="33%" class="font-weight-bold text-gray-800">Product Code
+                                                    </td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <td style="border-right: 2px solid rgb(180, 180, 180);"
+                                                        class="text-gray-800">20 pieces in stock</td>
+                                                    <td style="border-right: 2px solid rgb(180, 180, 180);"
+                                                        class="text-gray-800">History, Politic, Economy</td>
+                                                    <td class="text-gray-800">CA87356</td>
+                                                </tr>
+                                            </table>
+                                            <!-- Button pinjam -->
+                                            <button type="button" class="btn btn-outline-info mt-4">Borrow
+                                                <i class="fa fa-shopping-bag"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger mt-4 ml-4">Share
+                                                <i class="fa fa-share-alt"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <!-- divider -->
+                                            <hr style="border-top: 2px solid rgb(180, 180, 180)">
+                                            <!-- Book description -->
+                                            <h5 class="text-gray-800"><u>Bo</u>ok Descriptions</h5>
+                                            <p class="text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Maxime mollitia,
+                                                molestiae quas vel sint commodi repudiandae consequuntur voluptatum
+                                                laborum
+                                                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga
+                                                praesentium
+                                                optio, eaque rerum! Provident similique accusantium nemo autem.
+                                                Veritatis
+                                                obcaecati tenetur iure eius earum ut molestias architecto voluptate
+                                                aliquam
+                                                nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat,
+                                                odit,
+                                                tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+                                                quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
+                                                sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+                                                recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
+                                                minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
+                                                quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
+                                                fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
+                                                consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+                                                doloremque. Quaerat provident commodi consectetur veniam similique ad
+                                                earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
+                                                fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores
+                                                labore
+                                                suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab
+                                                laudantium
+                                                modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
+                                                totam ratione voluptas quod exercitationem fuga. Possimus quis earum
+                                                veniam
+                                                quasi aliquam eligendi, placeat qui corporis!</p>
+                                            <!-- Book Details -->
+                                            <h5 class="text-gray-800 mt-3"><u>Bo</u>ok Details</h5>
+                                            <table class="table-responsive mt-4" style="display: table">
+                                                <tr class="text-center">
+                                                    <td width="33%" style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="font-weight-bold text-gray-900">Book Title</td>
+                                                    <td width="33%" style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="font-weight-bold text-gray-900">Author</td>
+                                                    <td width="33%" class="font-weight-bold text-gray-900">Book Type
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="text-gray-800 text-center pb-2">20 pieces in stock</td>
+                                                    <td style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="text-gray-800 text-center pb-2">History, Politic, Economy</td>
+                                                    <td class="text-gray-800 text-center pb-2">CA87356</td>
+                                                </tr>
+                                                <tr class="text-center"
+                                                    style="border-top: 1px solid rgb(180, 180, 180);">
+                                                    <td style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="font-weight-bold text-gray-900 pt-2">Date Published</td>
+                                                    <td style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="font-weight-bold text-gray-900 pt-2">Spesification</td>
+                                                    <td class="font-weight-bold text-gray-900 pt-2">Chapter</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="text-gray-800 text-center">20 June 2023</td>
+                                                    <td style="border-right: 1px solid rgb(180, 180, 180);"
+                                                        class="text-gray-800 text-center">This is book spesification</td>
+                                                    <td class="text-gray-800 text-center">100 pages</td>
+                                                </tr>
+                                            </table>
+                                            <!-- Book Details -->
+                                            <!-- <h5 class="text-gray-800 mt-3"><u>Bo</u>ok Reviews</h5> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../../vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../../js/demo/chart-area-demo.js"></script>
+    <script src="../../js/demo/chart-pie-demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+    <script src="../../js/custom-js.js"></script>
+
+
+</body>
+
+</html>
