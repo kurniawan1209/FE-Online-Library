@@ -27,18 +27,65 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
+// Generate x value
+function formatToDDMon(date) {
+  var months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  var day = date.getDate();
+  var month = date.getMonth();
+  var formattedDate = ("0" + day).slice(-2) + "-" + months[month];
+  
+  return formattedDate;
+}
+
+function getLast30Days() {
+  var dates = [];
+  var currentDate = new Date();
+
+  while (dates.length < 30) {
+    currentDate.setDate(currentDate.getDate() - 1);
+
+    // Cek apakah hari saat ini bukan Sabtu (6) atau Minggu (0)
+    if (currentDate.getDay() !== 6 && currentDate.getDay() !== 0) {
+      dates.push(formatToDDMon(new Date(currentDate)));
+    }
+  }
+
+  return dates;
+}
+
+var last_30_days = getLast30Days();
+
+// Generate y value
+function getRandomValues(length) {
+  var values = [];
+
+  for (var i = 0; i < length; i++) {
+    var randomValue = Math.floor(Math.random() * 50) + 1;
+    values.push(randomValue);
+  }
+
+  return values;
+}
+
+var random_values = getRandomValues(last_30_days.length);
+
+
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: last_30_days,
     datasets: [{
       label: "Revenue",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      data: random_values,
     }],
   },
   options: {
@@ -65,25 +112,25 @@ var myBarChart = new Chart(ctx, {
         },
         maxBarThickness: 25,
       }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 15000,
-          maxTicksLimit: 5,
-          padding: 10,
-          // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return '$' + number_format(value);
-          }
-        },
-        gridLines: {
-          color: "rgb(234, 236, 244)",
-          zeroLineColor: "rgb(234, 236, 244)",
-          drawBorder: false,
-          borderDash: [2],
-          zeroLineBorderDash: [2]
-        }
-      }],
+      // yAxes: [{
+      //   ticks: {
+      //     min: 0,
+      //     max: 15000,
+      //     maxTicksLimit: 5,
+      //     padding: 10,
+      //     // Include a dollar sign in the ticks
+      //     callback: function(value, index, values) {
+      //       return '$' + number_format(value);
+      //     }
+      //   },
+      //   gridLines: {
+      //     color: "rgb(234, 236, 244)",
+      //     zeroLineColor: "rgb(234, 236, 244)",
+      //     drawBorder: false,
+      //     borderDash: [2],
+      //     zeroLineBorderDash: [2]
+      //   }
+      // }],
     },
     legend: {
       display: false
@@ -103,7 +150,7 @@ var myBarChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + tooltipItem.yLabel;
         }
       }
     },

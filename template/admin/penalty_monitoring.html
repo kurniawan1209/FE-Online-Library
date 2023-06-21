@@ -23,9 +23,6 @@
     <link rel="stylesheet" href="../../css/custom-card-css.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link href="../../css/responsive.css" rel="stylesheet" />
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
-
     <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
 
     <style>
@@ -66,21 +63,63 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Home Page</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - My Collections -->
+            <!-- Nav Item - manaManagement> -->
             <li class="nav-item">
-                <a class="nav-link" href="my_collection.html">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_user"
+                    aria-expanded="true" aria-controls="collapse_user">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>User Management</span>
+                </a>
+                <div id="collapse_user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        <a class="collapse-item" href="user_monitoring.html">Monitoring</a>
+                        <a class="collapse-item" href="user_create.html">Create</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Book Management> -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_book"
+                    aria-expanded="true" aria-controls="collapse_book">
                     <i class="fas fa-fw fa-book-open"></i>
-                    <span>My Collections</span></a>
+                    <span>Book Management</span>
+                </a>
+                <div id="collapse_book" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        <a class="collapse-item" href="book_monitoring.html">Monitoring</a>
+                        <a class="collapse-item" href="book_create.html">Create</a>
+                    </div>
+                </div>
             </li>
 
-            <!-- Nav Item - My Profile -->
+            <!-- Nav Item - Book Type Management -->
             <li class="nav-item">
-                <a class="nav-link" href="profile.html">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>My Profile</span></a>
+                <a class="nav-link" href="book_type_management.html">
+                    <i class="fas fa-fw fa-book-reader"></i>
+                    <span>Book Type Management</span></a>
+            </li>
+
+            <!-- Nav Item - Penalty Management -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_penalty"
+                    aria-expanded="true" aria-controls="collapse_penalty">
+                    <i class="fas fa-fw fa-gavel"></i>
+                    <span>Penalty Management</span>
+                </a>
+                <div id="collapse_penalty" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        <a class="collapse-item" href="penalty_monitoring.html">Monitoring</a>
+                        <a class="collapse-item" href="penalty_create.html">Create</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Logout -->
@@ -89,7 +128,6 @@
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -137,37 +175,13 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link" href="#" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="#" id="userDropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle" src="../../img/undraw_profile.svg">
                             </a>
-                            
                         </li>
 
                     </ul>
@@ -178,49 +192,48 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Penalty Monitoring</h1>
+                        <div>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                            <a href="penalty_create.html"
+                                class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+                                <i class="fa fa-fw fa-plus"></i>Add New Penalty
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="row">
 
-                        <div class="col-xl-12 col-md-12 mb-4">
-                            <div class="card shadow h-100">
+                        <div class="col-xl-12 col-md-12 mb-2">
+                            <div class="card shadow">
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">Book Name</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="staticEmail"
-                                                placeholder="Book Name">
+                                        <label for="staticEmail" class="col-md-2 col-form-label">User Name</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="User Name">
                                         </div>
-
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">Book Type</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="staticEmail"
-                                                placeholder="Book Type">
+                                        <label for="staticEmail" class="col-md-2 col-form-label">Trx Date</label>
+                                        <div class="col-md-2">
+                                            <input type="datetime-local" class="form-control" placeholder="Book Title">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="date" class="form-control" placeholder="Book Title">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputPassword" class="col-sm-2 col-form-label">Date Borrowed</label>
-                                        <div class="col-sm-2">
-                                            <input type="date" class="form-control" id="inp-datepicker-start"
-                                                name="daterange">
+                                        <label for="staticEmail" class="col-md-2 col-form-label">Book Title</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="Book Title">
                                         </div>
-                                        <div class="col-sm-2">
-                                            <input type="date" class="form-control" id="inp-datepicker-start"
-                                                name="daterange">
-                                        </div>
-
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">Status</label>
-                                        <div class="col-sm-4">
-                                            <select class="custom-select" id="inputGroupSelect01">
-                                                <option selected>Choose...</option>
-                                                <option value="1">On going</option>
-                                                <option value="2">Due</option>
-                                                <option value="3">All</option>
-                                            </select>
+                                        <label for="staticEmail" class="col-md-2 col-form-label">Penalty Name</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="Penalty Name">
                                         </div>
                                     </div>
-                                    <div class="row pt-3">
-                                        <div class="col-md-12 text-center">
-                                            <button class="btn btn-info btn-md">Search</button>
-                                        </div>
+                                    <div class="row justify-content-center pt-3">
+                                        <button class="btn btn-sm btn-info">Apply Filter</button>
                                     </div>
                                 </div>
                             </div>
@@ -229,20 +242,22 @@
                         <div class="col-xl-12 col-md-12 mb-4">
                             <div class="card shadow">
                                 <div class="card-body">
-                                    <table class="table table-responsive table-striped" style="display: table;" id="tbl-transaction">
+
+                                    <table class="table table-responsive table-striped" style="display: table;"
+                                        id="tbl-user-monitoring">
                                         <thead>
                                             <tr class="bg-info">
-                                                <th width="5%" class="text-white">No</th>
-                                                <th width="20%" class="text-white">Transaction Num</th>
-                                                <th width="20%" class="text-white">Book Name</th>
-                                                <th width="15%" class="text-white">Start</th>
-                                                <th width="15%" class="text-white">End</th>
-                                                <th width="15%" class="text-white">Status</th>
-                                                <th width="10%" class="text-white">Action</th>
+                                                <th width="5%" class="text-white text-center">No</th>
+                                                <th width="25%" class="text-white text-center">Book Title</th>
+                                                <th width="20%" class="text-white text-center">User Name</th>
+                                                <th width="20%" class="text-white text-center">Penalty Name</th>
+                                                <th width="15%" class="text-white text-center">Trx Date</th>
+                                                <th width="15%" class="text-white text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>
@@ -254,16 +269,6 @@
 
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -367,12 +372,35 @@
     <script src="../../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="../../js/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
     <script src="../../js/custom-js.js"></script>
 
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            smartSpeed: 450,
+            margin: 20,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                768: {
+                    items: 3
+                },
+                991: {
+                    items: 4
+                },
+                1200: {
+                    items: 5
+                }
+            }
+        });
+    </script>
 
 </body>
 
